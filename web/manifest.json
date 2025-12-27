@@ -1,11 +1,14 @@
 {
-    "name": "Denwee",
+    "name": "Denwee App",
     "short_name": "Denwee",
     "start_url": ".",
-    "display": "fullscreen",
-    "description": "Discover short, easy-to-understand, memorable facts every day!",
+    "display": "standalone",
+    "background_color": "#070C13",
+    "theme_color": "#070C13",
+    "description": "Discover random facts every day - quick to read, easy to remember and fun to share.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
+
     "icons": [
         {
             "src": "icons/Icon-192.png",
