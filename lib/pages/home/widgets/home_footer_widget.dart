@@ -35,7 +35,7 @@ class HomeFooter extends StatelessWidget {
           BoxShadow(
             color: Colors.black12,
             offset: Offset(0.0, -2.0),
-            blurRadius: 12.0,
+            blurRadius: 6.0,
           ),
         ],
       ),
