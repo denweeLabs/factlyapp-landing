@@ -5,7 +5,7 @@ description: "FactlyApp Landing page"
 publish_to: 'none'
 
 # App version
-version: 1.0.0
+version: 1.0.1
 
 # Env
 environment:

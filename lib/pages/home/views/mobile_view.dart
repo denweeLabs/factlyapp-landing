@@ -176,17 +176,17 @@ class _MobileViewState extends State<_MobileView> {
             runSpacing: 14,
             alignment: WrapAlignment.center,
             children: [
-              AppleStoreButton().fadeInUp(
+              const AppleStoreButton().fadeInUp(
                 curve: AppConstants.lightElasticOut,
                 duration: const Duration(milliseconds: 1800),
                 delay: const Duration(milliseconds: 1100),
               ),
-              GooglePlayButton().fadeInUp(
+              const GooglePlayButton().fadeInUp(
                 curve: AppConstants.lightElasticOut,
                 duration: const Duration(milliseconds: 1800),
                 delay: const Duration(milliseconds: 1400),
               ),
-              GithubButton().fadeInUp(
+              const GithubButton().fadeInUp(
                 curve: AppConstants.lightElasticOut,
                 duration: const Duration(milliseconds: 1800),
                 delay: const Duration(milliseconds: 1700),

@@ -58,7 +58,7 @@ Future<void> main() async {
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
-  static const title = 'Denwee';
+  static const title = 'Denwee App';
 
   @override
   State<MainApp> createState() => _MainAppState();
