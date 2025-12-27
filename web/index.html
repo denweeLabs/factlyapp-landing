@@ -18,7 +18,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Discover short, easy-to-understand, memorable facts every day!">
+  <meta name="description" content="Discover random facts every day - quick to read, easy to remember and fun to share.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -26,20 +26,55 @@
   <meta name="apple-mobile-web-app-title" content="Denwee">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="canonical" href="https://denwee.com">
+
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 
   <link rel="manifest" href="manifest.json">
 
-  <meta property="og:title" content="Denwee">
-  <meta property="og:description" content="Discover short, easy-to-understand, memorable facts every day!">
-  <meta property="og:image" content="icons/Icon-512.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Download Denwee App">
+  <meta property="og:description" content="Discover random facts every day - quick to read, easy to remember and fun to share.">
+  <meta property="og:image" content="https://denwee.com/og/app-mockup.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://denwee.com">
 
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Download Denwee App">
+  <meta name="twitter:description" content="Discover random facts every day - quick to read, easy to remember and fun to share.">
+  <meta name="twitter:image" content="https://denwee.com/og/app-mockup.webp">
 
-  <title>Denwee</title>
+  <title>Denwee App</title>
 </head>
 <body>
+
+  <!-- Background (dark/light) -->
+  <style>
+    body.light {
+      background-color: #F6F5FA;
+    }
+    body.dark {
+      background-color: #070C13;
+    }
+  </style>
+
+  <!-- Set theme from query param, with fallback to user preference -->
+  <script>
+    var queryParams = new URLSearchParams(window.location.search);
+    var theme = queryParams.get("brightness");
+    theme ||= window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.body.classList.add(theme);
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
+
 </body>
 </html>
