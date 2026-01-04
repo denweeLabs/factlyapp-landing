@@ -26,6 +26,7 @@ class CommonMarkdown extends StatelessWidget {
       config: MarkdownConfig(
         configs: [
           _H1(context),
+          _H2(context),
           PConfig(
             textStyle: TextStyle(
               height: 1.6,
@@ -65,6 +66,24 @@ class _H1 implements HeadingConfig {
 
   @override
   EdgeInsets get padding => const EdgeInsets.only(top: 32);
+}
+
+class _H2 implements HeadingConfig {
+  _H2(this.context);
+
+  final BuildContext context;
+
+  @override
+  TextStyle get style => h2.copyWith(color: context.textColor);
+
+  @override
+  String get tag => MarkdownTag.h2.name;
+
+  @override
+  HeadingDivider? get divider => DummyDivider;
+
+  @override
+  EdgeInsets get padding => const EdgeInsets.only(bottom: 32, top: 6);
 }
 
 final DummyDivider = HeadingDivider(
