@@ -6,16 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CommonThemeToggleIcon extends StatelessWidget {
-  const CommonThemeToggleIcon({super.key, this.size = 16});
+  const CommonThemeToggleIcon({super.key, this.size = 16, this.iconColor});
 
   final double size;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: themeNotifier,
-      builder: (context, themeMode, child) {
-        final iconPath = themeMode == ThemeMode.dark
+      builder: (context, themeData, child) {
+        final iconPath = themeData.mode == ThemeMode.dark
             ? AppAssets.moon
             : AppAssets.sun;
 
@@ -28,7 +29,7 @@ class CommonThemeToggleIcon extends StatelessWidget {
             width: size,
             key: ValueKey(iconPath),
             colorFilter: ColorFilter.mode(
-              context.iconColorTernary,
+              iconColor ?? context.iconColorTernary,
               BlendMode.srcIn,
             ),
           ),

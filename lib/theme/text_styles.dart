@@ -1,5 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:factlyapp_landing/constants/app_constants.dart';
 import 'package:flutter/material.dart';
+
+extension TextStylesX on BuildContext {
+  T whenLanguage<T>({
+    required T Function() en,
+    T Function()? ru,
+    T Function()? it,
+    T Function()? fr,
+    T Function()? de,
+    T Function()? zh,
+  }) {
+    switch (locale.languageCode) {
+      case 'en': return en();
+      case 'ru': return ru?.call() ?? en();
+      case 'it': return it?.call() ?? en();
+      case 'fr': return fr?.call() ?? en();
+      case 'de': return de?.call() ?? en();
+      case 'zh': return zh?.call() ?? en();
+      default: return en();
+    }
+  }
+}
 
 TextStyle _styleWrapper({
   double? height,
@@ -12,7 +34,7 @@ TextStyle _styleWrapper({
   fontSize: fontSize,
   letterSpacing: letterSpacing,
   fontWeight: fontWeight,
-  fontFamily: AppConstants.primaryFont,
+  fontFamily: fontFamily,
 );
 
 TextStyle get h0 {

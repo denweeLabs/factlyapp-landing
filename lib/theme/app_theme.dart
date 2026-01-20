@@ -1,24 +1,30 @@
 import 'package:factlyapp_landing/theme/app_colors.dart';
+import 'package:factlyapp_landing/theme/app_theme_data.dart';
 import 'package:flutter/material.dart';
 
 part 'dark_theme.dart';
 part 'light_theme.dart';
 
-class ThemeNotifier extends ValueNotifier<ThemeMode> {
+class ThemeNotifier extends ValueNotifier<AppThemeData> {
   ThemeNotifier._(super.value);
 
-  bool get isLight => value == ThemeMode.light;
+  bool get isLight => value.mode == ThemeMode.light;
 
-  factory ThemeNotifier.fromPlatformBrightness(Brightness brightness) {
-    final mode = brightness == Brightness.light
-        ? ThemeMode.light
-        : ThemeMode.dark;
-    return ThemeNotifier._(mode);
+  factory ThemeNotifier.fromData(AppThemeData data) {
+    return ThemeNotifier._(data);
   }
 
-  void toggleTheme() {
-    final isLight = value == ThemeMode.light;
-    value = isLight ? ThemeMode.dark : ThemeMode.light;
+  void toggleThemeMode() {
+    final isLight = value.mode == ThemeMode.light;
+    final newMode = isLight ? ThemeMode.dark : ThemeMode.light;
+    final newValue = value.copyWith(mode: newMode);
+    value = newValue;
+    notifyListeners();
+  }
+
+  void changeThemeColoration(int id) {
+    final newValue = value.copyWith(colorationId: id);
+    value = newValue;
     notifyListeners();
   }
 }
@@ -32,12 +38,12 @@ class AppTheme {
 
   factory AppTheme.fromType(ThemeType type) => AppTheme._(type);
 
-  ThemeData themeData() {
+  ThemeData themeData(ThemeColoration coloration) {
     switch (type) {
       case ThemeType.dark:
-        return darkTheme();
+        return darkTheme(coloration);
       default:
-        return lightTheme();
+        return lightTheme(coloration);
     }
   }
 }
