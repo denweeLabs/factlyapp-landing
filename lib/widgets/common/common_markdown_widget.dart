@@ -1,3 +1,4 @@
+import 'package:factlyapp_landing/constants/app_constants.dart';
 import 'package:factlyapp_landing/theme/app_theme.dart';
 import 'package:factlyapp_landing/theme/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,13 @@ class _H1 implements HeadingConfig {
   final BuildContext context;
 
   @override
-  TextStyle get style => h1.copyWith(color: context.textColor);
+  TextStyle get style => h1.copyWith(
+    color: context.textColor,
+    fontFamily: context.whenLanguage(
+      en: () => AppConstants.primaryFont,
+      ru: () => AppConstants.secondaryFont,
+    ),
+  );
 
   @override
   String get tag => MarkdownTag.h1.name;
