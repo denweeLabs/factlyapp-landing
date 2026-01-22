@@ -72,7 +72,7 @@ class _H1 implements HeadingConfig {
   HeadingDivider? get divider => DummyDivider;
 
   @override
-  EdgeInsets get padding => const EdgeInsets.only(top: 32);
+  EdgeInsets get padding => const EdgeInsets.only(top: 42);
 }
 
 class _H2 implements HeadingConfig {
