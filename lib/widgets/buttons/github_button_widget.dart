@@ -3,6 +3,7 @@ import 'package:factlyapp_landing/constants/app_assets.dart';
 import 'package:factlyapp_landing/constants/app_constants.dart';
 import 'package:factlyapp_landing/theme/app_theme.dart';
 import 'package:factlyapp_landing/theme/text_styles.dart';
+import 'package:factlyapp_landing/widgets/buttons/apple_store_button_widget.dart';
 import 'package:factlyapp_landing/widgets/common/common_heart_hands_animated_icon_widget.dart';
 import 'package:factlyapp_landing/widgets/animations/tap_hover_builder_widget.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class GithubButton extends StatelessWidget {
       onTap: _onTap,
       endScale: 0.94,
       builder: (isHovered) => Container(
-        width: 164,
+        width: AppleStoreButton.width,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(42)),
           color: backgroundColor,

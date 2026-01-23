@@ -12,6 +12,8 @@ import 'package:web/web.dart' as web;
 class AppleStoreButton extends StatelessWidget {
   const AppleStoreButton({super.key});
 
+  static const width = 172.0;
+
   @override
   Widget build(BuildContext context) {
     final backgroundColor = context.isLightTheme
@@ -25,7 +27,7 @@ class AppleStoreButton extends StatelessWidget {
       onTap: _onTap,
       endScale: 0.94,
       builder: (isHovered) => Container(
-        width: 164,
+        width: AppleStoreButton.width,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(42)),
           color: backgroundColor,

@@ -1,3 +1,4 @@
+import 'package:factlyapp_landing/constants/app_constants.dart';
 import 'package:factlyapp_landing/main.dart';
 import 'package:factlyapp_landing/theme/app_theme.dart';
 import 'package:factlyapp_landing/theme/text_styles.dart';
@@ -15,7 +16,7 @@ class CommonAppBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: context.primaryContainer,
+        gradient: AppConstants.commonColoredGradient(context),
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,
@@ -30,16 +31,23 @@ class CommonAppBar extends StatelessWidget {
           Text(
             title,
             style: h1.copyWith(
-              color: context.textColor,
+              color: context.lightTextColor,
               fontWeight: FontWeight.w800,
+              fontFamily: context.whenLanguage(
+                en: () => AppConstants.primaryFont,
+                ru: () => AppConstants.secondaryFont,
+              ),
             ),
           ),
           const Spacer(),
           TapHoverAnimation(
-            onTap: themeNotifier.toggleTheme,
+            onTap: themeNotifier.toggleThemeMode,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 28),
-              child: const CommonThemeToggleIcon(size: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
+              child: CommonThemeToggleIcon(
+                size: 20,
+                iconColor: context.lightIconColor,
+              ),
             ),
           ),
         ],

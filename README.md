@@ -1,5 +1,5 @@
 <h1 align="center">
-  FactlyApp Landing
+  Denwee App Landing
   <br>
 </h1>
 
@@ -25,6 +25,17 @@
 - Path navigation with [go_router](https://pub.dev/packages/go_router)
 - Static icons from [Iconsax](https://iconsax.io)
 - Animated emojis from [Noto Animated Emojis](https://googlefonts.github.io/noto-emoji-animation/) — licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+
+## 🔗 Supported Query Parameters
+
+The landing page supports the following URL query parameters:
+
+| Parameter   | Description   | Allowed values  | Example |
+|-------------|---------------| ----------------|---------|
+| `brightness` | Theme mode   | dark, light | `brightness=dark` |
+| `coloration` | Color theme id | 1 – 9 | `coloration=5` |
+| `lang`       | Interface language | en, it, fr, de, ru, zh | `lang=it` |
 
 
 ## 🚀 How To Run

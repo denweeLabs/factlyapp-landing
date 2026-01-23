@@ -1,3 +1,4 @@
+import 'package:factlyapp_landing/constants/app_constants.dart';
 import 'package:factlyapp_landing/theme/app_theme.dart';
 import 'package:factlyapp_landing/theme/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class CommonMarkdown extends StatelessWidget {
       config: MarkdownConfig(
         configs: [
           _H1(context),
+          _H2(context),
           PConfig(
             textStyle: TextStyle(
               height: 1.6,
@@ -55,7 +57,13 @@ class _H1 implements HeadingConfig {
   final BuildContext context;
 
   @override
-  TextStyle get style => h1.copyWith(color: context.textColor);
+  TextStyle get style => h1.copyWith(
+    color: context.textColor,
+    fontFamily: context.whenLanguage(
+      en: () => AppConstants.primaryFont,
+      ru: () => AppConstants.secondaryFont,
+    ),
+  );
 
   @override
   String get tag => MarkdownTag.h1.name;
@@ -64,7 +72,25 @@ class _H1 implements HeadingConfig {
   HeadingDivider? get divider => DummyDivider;
 
   @override
-  EdgeInsets get padding => const EdgeInsets.only(top: 32);
+  EdgeInsets get padding => const EdgeInsets.only(top: 42);
+}
+
+class _H2 implements HeadingConfig {
+  _H2(this.context);
+
+  final BuildContext context;
+
+  @override
+  TextStyle get style => h2.copyWith(color: context.textColor);
+
+  @override
+  String get tag => MarkdownTag.h2.name;
+
+  @override
+  HeadingDivider? get divider => DummyDivider;
+
+  @override
+  EdgeInsets get padding => const EdgeInsets.only(bottom: 32, top: 6);
 }
 
 final DummyDivider = HeadingDivider(
